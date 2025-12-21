@@ -1,26 +1,36 @@
-mod solves;
 mod crypto;
 mod flags;
-use crate::solves::solve0::solve_and_get_flag;
+mod logic;
+
+use crate::logic::*;
+
+use std::env;
+
 
 fn main() {
-}
 
+    let args: Vec<String> = env::args().collect();
 
-fn flag(){
-    match solve_and_get_flag() {
-        Some(flag) => println!("What a good start : {}", flag),
-        None => println!("❌ Challenge 0 non validé"),
+    let challenged_id = match args.get(1){
+        Some(id) => id.as_str(),
+        None => {
+            println!("Usage: cargo run -p oracle -- <id>");
+            return;
+        }
+    };
+
+    match challenged_id {
+        "0" => run_challenge::<Verifier0>("Challenge0"),
+        _ => println!("Challenge id {} does not exist yet", challenged_id)
     }
 
+
 }
 
-trait ChallengeVerifier {
 
-    //A type that can be hashed.
-    type Output: AsRef<[u8]>; 
-
-    fn run_player_code() -> Self::Output;
-    fn check_result(out: &Self::Output) -> bool;
-    fn secret_data() -> (&'static [u8; 12], &'static [u8]);
+fn run_challenge<V: ChallengeVerifier>(name: &str){
+    match solve::<V>(){
+        Some(flag) => println!("✨ {} verified: {}", name, flag),
+        None  => println!("NOPE ??? Have you even tried ??")
+    }
 }

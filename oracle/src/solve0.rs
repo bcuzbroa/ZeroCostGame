@@ -21,3 +21,4 @@ pub fn solve_and_get_flag() -> Option<String> {
 
     String::from_utf8(decrypted).ok()
 }
+
