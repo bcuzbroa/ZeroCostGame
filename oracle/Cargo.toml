@@ -7,3 +7,13 @@ edition = "2021"
 challenges = { path = "../challenges" }
 blake3 = "1"
 chacha20poly1305 = "0.10"
+csv = "1.4.0"
+hex = "0.4.3"
+
+[[bin]]
+name = "encrypt_flag"
+path = "bin/encrypt_flag.rs"
+
+[lib]
+name = "oracle"
+path = "src/lib.rs"

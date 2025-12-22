@@ -1,5 +1,4 @@
 mod crypto;
-mod flags;
 mod logic;
 
 use crate::logic::*;
@@ -20,17 +19,15 @@ fn main() {
     };
 
     match challenged_id {
-        "0" => run_challenge::<Verifier0>("Challenge0"),
+        "0" => run_challenge::<Verifier0>("Hello World !"),
+        "1" => run_challenge::<Verifier1>("Ownership"),
         _ => println!("Challenge id {} does not exist yet", challenged_id)
     }
-
-
 }
 
-
 fn run_challenge<V: ChallengeVerifier>(name: &str){
-    match solve::<V>(){
+    match solve::<V>(){ //TURBOFISH
         Some(flag) => println!("✨ {} verified: {}", name, flag),
-        None  => println!("NOPE ??? Have you even tried ??")
+        None  => println!("❌❌ NOPE ❌❌ Have you even tried ??")
     }
 }

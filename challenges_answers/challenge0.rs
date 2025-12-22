@@ -2,5 +2,5 @@
 
 //Task : Return the string "Hello world !"
 pub fn hello() -> String {
-    todo!()
+    "Hello world !".to_string()
 }
