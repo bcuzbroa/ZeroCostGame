@@ -2,5 +2,6 @@
 
 //Task : Return the string "Hello world !"
 pub fn hello() -> String {
-    todo!()
+
+    String::from("Hello world !")
 }
