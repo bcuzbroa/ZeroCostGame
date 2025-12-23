@@ -36,3 +36,9 @@ pub fn hello() -> ........ {
 # To verify Challenge 0
 `cargo run -p oracle -- 0`
 If this is a success, a flag is prompted, else you are kindly told to keep thinking.
+
+
+## Admin :
+
+Once the ChallengeVerifier trait is implemented for a specifique challenge, one can generate a encrypted flag using:
+`cargo run --bin encrypt_flag -- <challenge_id> <flag plaintext>`

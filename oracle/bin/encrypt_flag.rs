@@ -36,7 +36,17 @@ fn main(){
     let ciphertext = match challenged_id {
         "0" => crypt_flag::<Verifier0>(flag),
         "1" => crypt_flag::<Verifier1>(flag),
-        //"2" => crypt_flag::<Verifier2>(flag),
+        "2" => crypt_flag::<Verifier2>(flag),
+        /*
+        "3" => crypt_flag::<Verifier2>(flag),
+        "4" => crypt_flag::<Verifier2>(flag),
+        "5" => crypt_flag::<Verifier2>(flag),
+        "6" => crypt_flag::<Verifier2>(flag),
+        "7" => crypt_flag::<Verifier2>(flag),
+        "8" => crypt_flag::<Verifier2>(flag),
+        "9" => crypt_flag::<Verifier2>(flag),
+        "10" => crypt_flag::<Verifier2>(flag),
+        */        
         _ => {
             eprintln!("Unknown challenge id");
             return;
