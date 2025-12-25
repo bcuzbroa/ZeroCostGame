@@ -11,6 +11,7 @@ use std::{env,
 };
 
 use oracle::logic::*;
+use oracle::verifier::*;
 
 fn main(){
 
@@ -37,15 +38,15 @@ fn main(){
         "0" => crypt_flag::<Verifier0>(flag),
         "1" => crypt_flag::<Verifier1>(flag),
         "2" => crypt_flag::<Verifier2>(flag),
+        "3" => crypt_flag::<Verifier3>(flag),
+        "4" => crypt_flag::<Verifier4>(flag),
         /*
-        "3" => crypt_flag::<Verifier2>(flag),
-        "4" => crypt_flag::<Verifier2>(flag),
-        "5" => crypt_flag::<Verifier2>(flag),
-        "6" => crypt_flag::<Verifier2>(flag),
-        "7" => crypt_flag::<Verifier2>(flag),
-        "8" => crypt_flag::<Verifier2>(flag),
-        "9" => crypt_flag::<Verifier2>(flag),
-        "10" => crypt_flag::<Verifier2>(flag),
+        "5" => crypt_flag::<Verifier5>(flag),
+        "6" => crypt_flag::<Verifier6>(flag),
+        "7" => crypt_flag::<Verifier7>(flag),
+        "8" => crypt_flag::<Verifier8>(flag),
+        "9" => crypt_flag::<Verifier9>(flag),
+        "10" => crypt_flag::<Verifier10>(flag),
         */        
         _ => {
             eprintln!("Unknown challenge id");
