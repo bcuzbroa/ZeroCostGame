@@ -1,13 +1,19 @@
 // RESULT HANDLER
 
-// Create the Error
+// Create the CommandError enum that contains:
+// ContainsBang 
+// ContainsSlash
 #[derive(Debug)]
 pub enum CommandError {
     ContainsBang,
     ContainsSlash,
 }
 
-//return and error if there is a '!' in the string slice
+/*
+return a ContainsBang Error (resp. Slash) if the 
+input string contains a '!' (resp. '/')
+else : return the string wrapped in some Result type
+ */
 //Else the Ok(string)
 pub fn check(s : &str) -> Result<String, CommandError> {
     if s.contains('!'){

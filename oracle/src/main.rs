@@ -23,9 +23,9 @@ fn main() {
         "1" => run_challenge::<Verifier1>("Ownership"),
         "2" => run_challenge::<Verifier2>("Borrowing"),
         "3" => run_challenge::<Verifier3>("Optionnal"),
-        "4" => run_challenge::<Verifier4>("Borrowing"),
+        "4" => run_challenge::<Verifier4>("Result"),
+        "5" => run_challenge::<Verifier5>("Iterator"),
         /*
-        "5" => run_challenge::<Verifier5>("Borrowing"),
         "6" => run_challenge::<Verifier6>("Borrowing"),
         "7" => run_challenge::<Verifier7>("Borrowing"),
         "8" => run_challenge::<Verifier8>("Borrowing"),

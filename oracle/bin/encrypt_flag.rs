@@ -40,8 +40,8 @@ fn main(){
         "2" => crypt_flag::<Verifier2>(flag),
         "3" => crypt_flag::<Verifier3>(flag),
         "4" => crypt_flag::<Verifier4>(flag),
-        /*
         "5" => crypt_flag::<Verifier5>(flag),
+        /*
         "6" => crypt_flag::<Verifier6>(flag),
         "7" => crypt_flag::<Verifier7>(flag),
         "8" => crypt_flag::<Verifier8>(flag),

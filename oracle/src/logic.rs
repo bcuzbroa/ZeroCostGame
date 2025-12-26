@@ -26,7 +26,6 @@ pub fn solve<V : ChallengeVerifier>() -> Option<String>{
     let nonce = [0x42u8; 24];
     let cipher = V::secret_data();
     let decrypted = crypto::decrypt(key.as_bytes(), &nonce, cipher)?;
-    println!("debug : {:?}", decrypted);
     let d_flag = String::from_utf8(decrypted).ok();
     d_flag
 }

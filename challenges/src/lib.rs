@@ -13,10 +13,10 @@ pub use challenge3::*;
 
 mod challenge4;
 pub use challenge4::*;
-/*
 
 mod challenge5;
 pub use challenge5::*;
+/*
 
 mod challenge6;
 pub use challenge6::*;
