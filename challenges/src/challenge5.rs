@@ -35,16 +35,18 @@ pub fn collect_and_sort(scrambled : impl Iterator<Item = u32>) -> Vec<u32>{
     v
 }
 
-
+/*
+Used to generate the challenge Verifier
 fn main() {
     let numbers: Vec<u32> = (0..=255).collect();
     println!("{:?}", numbers);
     let scrambled = scramble(numbers.clone());
-
+    
     let sum = sumup(scrambled);
-
+    
     let collect = collect_and_sort(scramble(numbers.clone()));
-
+    
     println!("Sum: {}", sum);
     println!("Sorted values: {:?}", collect);
 }
+*/

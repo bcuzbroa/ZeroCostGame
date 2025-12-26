@@ -1,2 +1,3 @@
 [workspace]
 members = ["challenges", "oracle"]
+resolver = "3"

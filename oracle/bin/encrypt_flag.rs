@@ -18,36 +18,48 @@ fn main(){
 
     let args: Vec<String> = env::args().collect();
 
+    if args.len() < 3 {
+        println!("Usage: oracle <id_challenge> <challenge_dir_path>");
+        return;
+    }
+
     let challenged_id = match args.get(1){
         Some(id) => id.as_str(),
         None => {
-            println!("Missing argument!\nUsage: cargo run -p oracle --bin ecrypt_flag -- <id> <flag>");
+            println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
             return;
         }
     };
 
-    let flag = match args.get(2){
+    let base_path = match args.get(2){
+        Some(path) => path.as_str(),
+        None => {
+            println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
+            return;
+        }
+    };
+    
+    let flag = match args.get(3){
         Some(f) => f.as_str(),
         None => {
-            println!("Missing argument !\nUsage: cargo run -p oracle --bin ecrypt_flag -- <id> <flag>");
+            println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
             return;
         }
     };
 
     let ciphertext = match challenged_id {
-        "0" => crypt_flag::<Verifier0>(flag),
+        "0" => crypt_flag::<Verifier0>(flag, base_path),
+        /*
         "1" => crypt_flag::<Verifier1>(flag),
         "2" => crypt_flag::<Verifier2>(flag),
         "3" => crypt_flag::<Verifier3>(flag),
         "4" => crypt_flag::<Verifier4>(flag),
         "5" => crypt_flag::<Verifier5>(flag),
-        /*
         "6" => crypt_flag::<Verifier6>(flag),
         "7" => crypt_flag::<Verifier7>(flag),
         "8" => crypt_flag::<Verifier8>(flag),
         "9" => crypt_flag::<Verifier9>(flag),
-        "10" => crypt_flag::<Verifier10>(flag),
-        */        
+         */
         _ => {
             eprintln!("Unknown challenge id");
             return;
@@ -61,9 +73,9 @@ fn main(){
 
 
 
-fn crypt_flag<V : ChallengeVerifier>(flag :&str) -> Vec<u8>{
+fn crypt_flag<V : ChallengeVerifier>(flag :&str, path: &str) -> Vec<u8>{
 
-    let out = V::run_code();
+    let out = V::run_code(path);
     let key = blake3::hash(out.as_ref());
     let nonce = [0x42u8; 24]; //Here is a little vulnerabily, let them use it ! (static nonce)
     let cipher = XChaCha20Poly1305::new(key.as_bytes().into());
