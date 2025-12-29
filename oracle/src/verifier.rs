@@ -6,10 +6,10 @@ pub struct Verifier2;
 pub struct Verifier3;
 pub struct Verifier4;
 pub struct Verifier5;
-/*
 pub struct Verifier6;
 pub struct Verifier7;
 pub struct Verifier8;
+/*
 pub struct Verifier9;
 */
 
@@ -63,9 +63,6 @@ impl ChallengeVerifier for Verifier1{
         &[57, 79, 227, 77, 191, 91, 63, 11, 158, 102, 125, 229, 140, 192, 240, 157, 111, 212, 50, 31, 159, 116, 201, 130, 87, 148, 154, 37, 167, 61, 104, 150, 154, 216, 52, 94, 139, 192, 18, 195, 242, 217] 
         }
 }
-            
-            
-
 
 impl ChallengeVerifier for Verifier2 {
     type Output = String;
@@ -185,62 +182,163 @@ impl ChallengeVerifier for Verifier5 {
     }
 }
 
+impl ChallengeVerifier for Verifier6 {
+    type Output = String;
+    fn id() -> &'static str { "6" }
 
+    fn run_code(path: &str) -> Self::Output {
+        // Test simple d'exécution
+        let wrapper = r#"fn main() { print!("{}", longest("short", "very long string")); }"#;
+        Self::run_external(path, wrapper)
+    }
+
+    fn check_code(path: &str) -> bool {
+        let test_wrapper = r#"
+            fn main() {
+                let t1 = longest("apple", "pie") == "apple";
+                let t2 = longest("a", "banana") == "banana";
+
+                let t4 = longest("", "a") == "a";
+                let t5 = longest("", "") == "";
+
+                let string1 = String::from("long string");
+                let string2 = String::from("xyz");
+                let result = longest(string1.as_str(), string2.as_str());
+                let t6 = result == "long string";
+                print!("{}", t1 && t2 && t4 && t5 && t6);
+            }
+        "#;
+        Self::run_external(path, test_wrapper) == "true"
+    }
+
+    fn secret_data() -> &'static [u8] {
+        &[117, 28, 148, 209, 238, 247, 49, 11, 8, 191, 11, 126, 17, 30, 46, 38, 129, 111, 86, 44, 175, 186, 135, 70, 220, 82, 71, 70, 145, 123, 75, 74, 185, 13, 173, 219, 142, 1]
+    }
+}
+
+impl ChallengeVerifier for Verifier7 {
+    type Output = String;
+
+    fn id() -> &'static str { "7" }
+
+    fn run_code(path: &str) -> Self::Output {
+        let wrapper = r#"fn main() { print!("{}", 12.square()); }"#;
+        Self::run_external(path, wrapper)
+    }
+
+    // Ici on teste la logique mathématique pour les 3 types
+    fn check_code(path: &str) -> bool {
+        let test_wrapper = r#"
+            fn main() {
+                // Test 1 : i32
+                // 5² = 25 et (-5)² = 25
+                let t1 = 5.square() == 25;
+                let t2 = (-5).square() == 25;
+
+                // Test 2 : Complex
+                // (1 + 2i)² = (1*1 - 2*2) + (2*1*2)i = -3 + 4i
+                let c = Complex { re: 1.0, im: 2.0 };
+                let c_res = c.square();
+                // On vérifie champ par champ avec une petite tolérance (epsilon)
+                let t3 = (c_res.re - (-3.0)).abs() < 0.0001 && (c_res.im - 4.0).abs() < 0.0001;
+
+                // Test 3 : Vec2
+                // (2, 3) -> (4, 9)
+                let v = Vec2 { x: 2.0, y: 3.0 };
+                let v_res = v.square();
+                let t4 = (v_res.x - 4.0).abs() < 0.0001 && (v_res.y - 9.0).abs() < 0.0001;
+
+                print!("{}", t1 && t2 && t3 && t4);
+            }
+        "#;
+        Self::run_external(path, test_wrapper) == "true"
+    }
+
+    fn secret_data() -> &'static [u8] {
+        &[81, 158, 82, 253, 103, 27, 140, 117, 30, 41, 229, 93, 203, 135, 193, 249, 40, 233, 246, 114, 66, 77, 32, 123, 32, 254, 214, 123, 4, 159, 35, 143, 176, 226, 1, 172, 59, 104, 219, 49, 173, 15, 246]
+    }
+}
+
+
+
+
+
+impl ChallengeVerifier for Verifier8 {
+    type Output = String;
+    fn id() -> &'static str { "8" }
+
+    // Run code: Demonstrates that the 'largest' function works on a simple list of integers
+    fn run_code(path: &str) -> Self::Output {
+        let wrapper = r#"
+            fn main() { 
+                let number_list = vec![34, 50, 25, 100, 65];
+                let result = largest(&number_list);
+                print!("{}", result); 
+            }
+        "#;
+        Self::run_external(path, wrapper)
+    }
+
+    fn check_code(path: &str) -> bool {
+        let test_wrapper = r#"
+            fn main() {
+                // --- Test 1: Generics with Integers ---
+                let list_i32 = vec![10, 50, 100, 20];
+                let t1 = *largest(&list_i32) == 100;
+
+                // --- Test 2: Generics with Chars ---
+                let list_char = vec!['a', 'z', 'm'];
+                let t2 = *largest(&list_char) == 'z';
+
+                // --- Setup for Book Tests ---
+                // Book A: 100 pages, Title "Alpha"
+                let b1 = Book { title: "Alpha", author: "Author 1", pages: 100 };
+                // Book B: 100 pages, Title "Beta"
+                let b2 = Book { title: "Beta",  author: "Author 2", pages: 100 };
+                // Book C: 200 pages, Title "Gamma"
+                let b3 = Book { title: "Gamma", author: "Author 3", pages: 200 };
+
+                // --- Test 3: PartialEq Implementation ---
+                // Your impl checks ONLY pages. b1 (100) and b2 (100) should be 'equal'
+                let t3 = b1 == b2; 
+
+                // --- Test 4: PartialOrd Implementation ---
+                // Your impl checks pages first, THEN title.
+                // b3 has more pages than b2, so b3 > b2.
+                let t4 = b3 > b2; 
+                
+                // Tie-breaking check:
+                // b1 and b2 have same pages (100).
+                // "Beta" > "Alpha", so b2 should be greater than b1.
+                let t5 = b2 > b1;
+
+                // --- Test 5: Largest with Books ---
+                // List: [Alpha(100), Beta(100), Gamma(200)]
+                let library = vec![b1, b2, b3];
+                let best_book = largest(&library);
+                
+                // The largest should be b3 (Gamma) because it has the most pages
+                let t6 = best_book.title == "Gamma";
+
+                // Tie-breaker list: [Alpha(100), Beta(100)]
+                // Should return Beta because title "Beta" > "Alpha"
+                let b_alpha = Book { title: "Alpha", author: "A", pages: 100 };
+                let b_beta = Book { title: "Beta",  author: "A", pages: 100 };
+                let library_tie = vec![b_alpha, b_beta];
+                let t7 = largest(&library_tie).title == "Beta";
+
+                print!("{}", t1 && t2 && t3 && t4 && t5 && t6 && t7);
+            }
+        "#;
+        Self::run_external(path, test_wrapper) == "true"
+    }
+
+    fn secret_data() -> &'static [u8] {
+        &[117, 124, 36, 221, 182, 33, 215, 12, 10, 205, 118, 253, 231, 54, 229, 206, 166, 24, 1, 232, 193, 174, 79, 51, 115, 155, 181, 56, 103, 173, 174, 233, 6, 12, 242, 255, 92, 220, 176, 211, 253, 39, 207, 253, 251, 161, 2, 25, 138, 68, 252, 28, 8, 148, 194]
+    }
+}
+                
 /*
-impl ChallengeVerifier for Verifier6{
-    
-type Output = String; //This type can be hashed
-
-fn run_code() -> Self::Output {
-    todo!()
-}
-fn check_code() -> bool {
-    todo!()
-}
-// Default implementation for compilation purposes
-// &[0] is later replaced with the encrypted flag   
-fn secret_data() -> &'static [u8]{
-    &[0]
-}
-
-}
-
-impl ChallengeVerifier for Verifier7{
-    
-type Output = String; //This type can be hashed
-
-fn run_code() -> Self::Output {
-    todo!()
-}
-fn check_code() -> bool {
-    todo!()
-}
-// Default implementation for compilation purposes
-// &[0] is later replaced with the encrypted flag   
-fn secret_data() -> &'static [u8]{
-    &[0]
-}
-
-}
-
-impl ChallengeVerifier for Verifier8{
-    
-type Output = String; //This type can be hashed
-
-fn run_code() -> Self::Output {
-    todo!()
-}
-fn check_code() -> bool {
-    todo!()
-}
-// Default implementation for compilation purposes
-// &[0] is later replaced with the encrypted flag   
-fn secret_data() -> &'static [u8]{
-    &[0]
-}
-
-}
-
 impl ChallengeVerifier for Verifier9{
     
 type Output = String; //This type can be hashed

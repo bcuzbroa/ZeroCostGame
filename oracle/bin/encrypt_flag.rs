@@ -31,7 +31,15 @@ fn main(){
         }
     };
 
-    let base_path = match args.get(2){
+    let flag = match args.get(2){
+        Some(f) => f.as_str(),
+        None => {
+            println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
+            return;
+        }
+    };
+    
+    let base_path = match args.get(3){
         Some(path) => path.as_str(),
         None => {
             println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
@@ -39,25 +47,18 @@ fn main(){
         }
     };
     
-    let flag = match args.get(3){
-        Some(f) => f.as_str(),
-        None => {
-            println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
-            return;
-        }
-    };
 
     let ciphertext = match challenged_id {
         "0" => crypt_flag::<Verifier0>(flag, base_path),
+        "1" => crypt_flag::<Verifier1>(flag, base_path),
+        "2" => crypt_flag::<Verifier2>(flag, base_path),
+        "3" => crypt_flag::<Verifier3>(flag, base_path),
+        "4" => crypt_flag::<Verifier4>(flag, base_path),
+        "5" => crypt_flag::<Verifier5>(flag, base_path),
+        "6" => crypt_flag::<Verifier6>(flag, base_path),
+        "7" => crypt_flag::<Verifier7>(flag, base_path),
+        "8" => crypt_flag::<Verifier8>(flag, base_path),
         /*
-        "1" => crypt_flag::<Verifier1>(flag),
-        "2" => crypt_flag::<Verifier2>(flag),
-        "3" => crypt_flag::<Verifier3>(flag),
-        "4" => crypt_flag::<Verifier4>(flag),
-        "5" => crypt_flag::<Verifier5>(flag),
-        "6" => crypt_flag::<Verifier6>(flag),
-        "7" => crypt_flag::<Verifier7>(flag),
-        "8" => crypt_flag::<Verifier8>(flag),
         "9" => crypt_flag::<Verifier9>(flag),
          */
         _ => {
