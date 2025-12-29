@@ -14,7 +14,6 @@ hint : a string method exists to do so
 but you can try to implement it yourself
 */
 fn space(s : &str) -> &str {
-    //TODO
     s.trim()
 }
 

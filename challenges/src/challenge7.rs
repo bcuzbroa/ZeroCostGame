@@ -1,17 +1,21 @@
 // Traits
 
+
 pub trait Square{
+    //Squares itself
     fn square(self) -> Self;
 }
 
-
+// Implement the square trait for i32
+// ie for a given i: i32 = 30
+// asserteq!(i.square(), 900)
 impl Square for i32 {
     fn square(self) -> Self {
         self*self
     }
 }
 
-
+// Implement the square trait for a Complex number
 struct Complex {
     re : f64,
     im : f64
@@ -26,6 +30,7 @@ impl Square for Complex{
     }
 }
 
+//Implement the Square trait for a Vector (scalar product)
 struct Vec2 {
     x: f32,
     y: f32,

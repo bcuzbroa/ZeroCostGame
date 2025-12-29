@@ -1,9 +1,10 @@
 mod crypto;
 mod logic;
-mod verifier;
+mod verifiers;
 mod wrapper;
 
-use crate::verifier::*;
+
+use verifiers::*;
 use crate::logic::{ChallengeVerifier, solve};
 use std::env;
 
@@ -24,17 +25,18 @@ fn main() {
     }
 
     match challenge_id.as_str() {
-        "0" => run_challenge::<Verifier0>("Sanity Check", base_path),
-        "1" => run_challenge::<Verifier1>("Ownership"   , base_path),
-        "2" => run_challenge::<Verifier2>("Borrowing"   , base_path),
-        "3" => run_challenge::<Verifier3>("Optionnal"   , base_path),
-        "4" => run_challenge::<Verifier4>("Result"      , base_path),
-        "5" => run_challenge::<Verifier5>("Iterator"    , base_path),
-        "6" => run_challenge::<Verifier6>("LifeTimer"   , base_path),
-        "7" => run_challenge::<Verifier7>("Trait Master", base_path),
-        "8" => run_challenge::<Verifier8>("Advanced User", base_path),
+        "0" => run_challenge::<Verifier0>("Sanity Check"    , base_path),
+        "1" => run_challenge::<Verifier1>("Ownership"       , base_path),
+        "2" => run_challenge::<Verifier2>("Borrowing"       , base_path),
+        "3" => run_challenge::<Verifier3>("Optionnal"       , base_path),
+        "4" => run_challenge::<Verifier4>("Result"          , base_path),
+        "5" => run_challenge::<Verifier5>("Iterator"        , base_path),
+        "6" => run_challenge::<Verifier6>("LifeTimer"       , base_path),
+        "7" => run_challenge::<Verifier7>("Trait Master"    , base_path),
+        "8" => run_challenge::<Verifier8>("Advanced User"   , base_path),
         /*
-        "9" => run_challenge::<Verifier9>(""),
+        "9" => run_challenge::<Verifier9>("", base_path),
+        "10" => run_challenge::<Verifier9>("", base_path),
         */
         _ => println!("Challenge{} does not exist yet", challenge_id)
     }
@@ -43,6 +45,6 @@ fn main() {
 fn run_challenge<V: ChallengeVerifier>(name: &str, path: &str){
     match solve::<V>(path){ //TURBOFISH
         Some(flag) => println!("✨ {} ✨ verified: {}", name, flag),
-        None  => println!("❌❌ {}: NOPE ❌❌ Have you even tried ??", name)
+        None  => println!("❌❌ {}: NOPE ❌❌ Do you even try ??", name)
     }
 }

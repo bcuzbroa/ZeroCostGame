@@ -33,12 +33,17 @@ pub fn hello() -> ........ {
 ```
 
 
-# To verify Challenge 0
-`cargo run -p oracle -- 0`
+# ✅ Verifying a challenge challenge
+The oracle is designed to wrapped and verify the player code
+`./oracle -- <challenge_id> <challenge_dir_path>`
+
+Exemple: Verifying the `challenge0.rs` in the challenges directory.
+
+```bash
+`./oracle -- 0 challenge`
+✨ Sanity Check ✨ verified: FLAG{XXXX-XXXX-XXXX-XXX}
+```
+
 If this is a success, a flag is prompted, else you are kindly told to keep thinking.
 
 
-## Admin :
-
-Once the ChallengeVerifier trait is implemented for a specifique challenge, one can generate a encrypted flag using:
-`cargo run --bin encrypt_flag -- <challenge_id> <flag plaintext>`

@@ -11,7 +11,7 @@ use std::{env,
 };
 
 use oracle::logic::*;
-use oracle::verifier::*;
+use oracle::verifiers::*;
 
 fn main(){
 
@@ -116,8 +116,7 @@ fn write_flag_to_csv(id : &str, flag :&str) -> Result<(), Box<dyn Error>>{
 
     let base_path = env!("CARGO_MANIFEST_DIR");
     let mut file_path = PathBuf::from(base_path);
-    file_path.push("src");
-    file_path.push("flags");
+    file_path.push("..");
     file_path.push("flag_list.csv");
 
     let file = OpenOptions::new()
