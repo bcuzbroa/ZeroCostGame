@@ -4,11 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+argparse-rs = "0.1.0"
 blake3 = "1"
 chacha20poly1305 = "0.10"
 csv = "1.4.0"
 hex = "0.4.3"
-nalgebra = "0.34.1"
+clap = { version = "4.0", features = ["derive"] }
 
 [[bin]]
 name = "encrypt_flag"

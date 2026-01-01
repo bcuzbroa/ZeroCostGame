@@ -15,8 +15,8 @@ pub trait ChallengeVerifier {
     // &[0] is later replaced with the encrypted flag   
     fn secret_data() -> &'static [u8]{&[0]}
 
-    fn run_external(base_path: &str, wrapper_main: &str) -> String {
-        wrapper(base_path, wrapper_main, Self::id())
+    fn run_external(path: &str, wrapper_main: &str) -> String {
+        wrapper(path, wrapper_main, Self::id())
     }
 }
 

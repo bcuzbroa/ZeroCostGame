@@ -1,6 +1,6 @@
 // ITERATORS
 
-pub fn scramble(numbers : Vec<u32>) -> impl Iterator<Item = u32>{
+fn scramble(numbers : Vec<u32>) -> impl Iterator<Item = u32>{
     //Create an iterator that:
     /*
     Filters even number
@@ -18,14 +18,14 @@ pub fn scramble(numbers : Vec<u32>) -> impl Iterator<Item = u32>{
     .map(|x| x * 2)           
 }
 
-pub fn sumup(scrambled : impl Iterator<Item = u32>) -> u32{
+fn sumup(scrambled : impl Iterator<Item = u32>) -> u32{
     /*
     Todo: return the sum of the iterator returned by scramble
     */
     scrambled.sum()
 }
 
-pub fn collect_and_sort(scrambled : impl Iterator<Item = u32>) -> Vec<u32>{
+fn collect_and_sort(scrambled : impl Iterator<Item = u32>) -> Vec<u32>{
     /* Todo: Collect the iterator and then
     sort it in the ascending order
     return it as a vector.

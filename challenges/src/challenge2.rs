@@ -1,7 +1,7 @@
 //BORROWING
 
 //returns low caps trimed string
-pub fn coktail(s : String) -> String{
+fn coktail(s : String) -> String{
     low_caps(space(&s))
 }
 

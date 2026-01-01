@@ -1,7 +1,7 @@
 // Traits
 
 
-pub trait Square{
+trait Square{
     //Squares itself
     fn square(self) -> Self;
 }

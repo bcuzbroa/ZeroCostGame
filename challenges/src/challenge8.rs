@@ -2,11 +2,9 @@
 
 use std::cmp::PartialOrd;
 
-
-
 /*  Exercice I
-Implement a largest fonction with a given list that
-return the largest element of the lsit
+Implement a largest fonction with a given list of type T : &[T]
+that returns the largest element of generic type T
 */
 fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T { 
     let mut largest = &list[0];
@@ -18,10 +16,8 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     largest
 }
 
-
 //  Exercice 2 *
 // Lot of point here but both exercices must be done !
-
 struct Book<'a> {
     
     author : &'a str,

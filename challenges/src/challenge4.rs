@@ -4,7 +4,7 @@
 // ContainsBang 
 // ContainsSlash
 #[derive(Debug)]
-pub enum CommandError {
+enum CommandError {
     ContainsBang,
     ContainsSlash,
 }
@@ -15,7 +15,7 @@ input string contains a '!' (resp. '/')
 else : return the string wrapped in some Result type
  */
 //Else the Ok(string)
-pub fn check(s : &str) -> Result<String, CommandError> {
+fn check(s : &str) -> Result<String, CommandError> {
     if s.contains('!'){
        return Err(CommandError::ContainsBang)
     }
@@ -31,7 +31,7 @@ if there is a ! is the commande : remove it than return the command
 if there is a / in the commande : return std::error::Error
 else return the commmand
  */
-pub fn valid_command( command: &str) -> Result<String, CommandError> {
+fn valid_command( command: &str) -> Result<String, CommandError> {
     match check(command){
         Ok(c) => Ok(c),
         Err(CommandError::ContainsBang) => Ok(command.replace("!", "")),

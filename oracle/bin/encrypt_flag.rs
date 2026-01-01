@@ -39,7 +39,7 @@ fn main(){
         }
     };
     
-    let base_path = match args.get(3){
+    let path = match args.get(3){
         Some(path) => path.as_str(),
         None => {
             println!("Missing argument!\nUsage: cargo run --bin ecrypt_flag -- <id> <flag>");
@@ -49,19 +49,19 @@ fn main(){
     
 
     let ciphertext = match challenged_id {
-        "0" => crypt_flag::<Verifier0>(flag, base_path),
-        "1" => crypt_flag::<Verifier1>(flag, base_path),
-        "2" => crypt_flag::<Verifier2>(flag, base_path),
-        "3" => crypt_flag::<Verifier3>(flag, base_path),
-        "4" => crypt_flag::<Verifier4>(flag, base_path),
-        "5" => crypt_flag::<Verifier5>(flag, base_path),
-        "6" => crypt_flag::<Verifier6>(flag, base_path),
-        "7" => crypt_flag::<Verifier7>(flag, base_path),
-        "8" => crypt_flag::<Verifier8>(flag, base_path),
-        /*
-        "9" => crypt_flag::<Verifier9>(flag),
-         */
-        _ => {
+        "0" => crypt_flag::<Verifier0>(flag, path),
+        "1" => crypt_flag::<Verifier1>(flag, path),
+        "2" => crypt_flag::<Verifier2>(flag, path),
+        "3" => crypt_flag::<Verifier3>(flag, path),
+        "4" => crypt_flag::<Verifier4>(flag, path),
+        "5" => crypt_flag::<Verifier5>(flag, path),
+        "6" => crypt_flag::<Verifier6>(flag, path),
+        "7" => crypt_flag::<Verifier7>(flag, path),
+        "8" => crypt_flag::<Verifier8>(flag, path),
+        "9" => crypt_flag::<Verifier9>(flag, path),
+        "10" => crypt_flag::<Verifier10>(flag, path),
+
+        _   => {
             eprintln!("Unknown challenge id");
             return;
         }
@@ -87,8 +87,8 @@ fn crypt_flag<V : ChallengeVerifier>(flag :&str, path: &str) -> Vec<u8>{
 
 fn write_encrypted_flag_to_csv(id : &str, ciphertext : Vec<u8>) -> Result<(), Box<dyn Error>>{
 
-    let base_path = env!("CARGO_MANIFEST_DIR");
-    let mut file_path = PathBuf::from(base_path);
+    let path = env!("CARGO_MANIFEST_DIR");
+    let mut file_path = PathBuf::from(path);
     file_path.push("src");
     file_path.push("flags");
     file_path.push("encrypted_flag_list.csv");
@@ -105,17 +105,17 @@ fn write_encrypted_flag_to_csv(id : &str, ciphertext : Vec<u8>) -> Result<(), Bo
         .from_writer(file);
 
     let cipher_string = format!("{:?}", ciphertext);
+    
     wtr.write_record(&[id, &cipher_string])?;
-
     wtr.flush()?;
-
+    
     Ok(())
 }
 
 fn write_flag_to_csv(id : &str, flag :&str) -> Result<(), Box<dyn Error>>{
 
-    let base_path = env!("CARGO_MANIFEST_DIR");
-    let mut file_path = PathBuf::from(base_path);
+    let path = env!("CARGO_MANIFEST_DIR");
+    let mut file_path = PathBuf::from(path);
     file_path.push("..");
     file_path.push("flag_list.csv");
 
@@ -130,8 +130,7 @@ fn write_flag_to_csv(id : &str, flag :&str) -> Result<(), Box<dyn Error>>{
         .from_writer(file);
 
     wtr.write_record(&[id, flag])?;
-
     wtr.flush()?;
-
+    
     Ok(())
 }

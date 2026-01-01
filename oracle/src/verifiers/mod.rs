@@ -19,7 +19,6 @@ pub use v_challenge5::Verifier5;
 pub use v_challenge6::Verifier6;
 pub use v_challenge7::Verifier7;
 pub use v_challenge8::Verifier8;
-/*
-pub use v_challenge8::Verifier9;
-pub use v_challenge8::Verifier10;
-*/
+pub use v_challenge9::Verifier9;
+pub use v_challenge10::Verifier10;
+

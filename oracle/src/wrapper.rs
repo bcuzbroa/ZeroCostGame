@@ -1,9 +1,8 @@
 
-pub fn wrapper(base_path: &str, wrapper_main: &str, id : &str) -> String {
+pub fn wrapper(path: &str, wrapper_main: &str, id : &str) -> String {
 
-        let file_path = format!("{}/challenge{}.rs", base_path, id);
-        let player_code = std::fs::read_to_string(&file_path)
-            .expect(&format!("Could not read {}", file_path));
+        let player_code = std::fs::read_to_string(&path)
+            .expect(&format!("Could not read {}", path));
 
         // Create a temporary source file including the player's code and our test main
         let temp_src = format!("temp_challenge_{}.rs", id);
