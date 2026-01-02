@@ -1,17 +1,19 @@
-// HELLO RUST : BASE SANITY CHECK
-
-/*
-@args : None
-@returns : a owned String
-Write a hello() function that takes no argument
-and returns the "Hello world !" of type String
+/* =========================================================
+EXERCISE 0: SANITY CHECK
+=========================================================
 */
 
-// Write your code here
+/* 1. The "hello" function
+@args:    None
+@returns: String (owned)
 
+Task: 
+Return the exact string "Hello world !".
 
-/* If you want to test your code:
-fn main(){
-    println!("{}", hello())
-}
+Note: 
+In Rust, there is a difference between a string literal ("...") 
+and an owned String. Make sure you return an owned String.
 */
+
+// TODO: Write the hello function here
+
