@@ -10,3 +10,11 @@ fn value_or_zero(n: Option<i32>) -> i32 {
         None => 0,
     }
 }
+
+fn sum_options(numbers: Vec<Option<i32>>) -> i32 {
+    let mut total = 0;
+    for num in numbers {
+        total += value_or_zero(num);
+    }
+    total
+}

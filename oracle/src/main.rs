@@ -3,19 +3,18 @@ mod logic;
 mod verifiers;
 mod wrapper;
 
+use logic::{ChallengeVerifier, solve};
 use verifiers::*;
-use crate::logic::{ChallengeVerifier, solve};
+
 use clap::Parser;
+use regex::Regex;
+
 
 
 
 #[derive(Parser, Debug)]
 #[command(author, version, about = "Zero Cost Game")]
 struct Args {
-    /// Challenge id
-    #[arg(short, long)]
-    challenge_id: String,
-
     #[arg(short, long)]
     path: String,
 }
@@ -33,8 +32,14 @@ fn main() {
         return;
     }
 
+    let re = Regex::new(r"(\d+)").unwrap();
+
+    let challenge_id = re.captures(path)
+        .and_then(|cap| cap.get(1))
+        .map(|m| m.as_str())
+        .unwrap();
     
-    match args.challenge_id.as_str() {
+    match challenge_id {
         "0" => run_challenge::<Verifier0>("Sanity Check"    , path),
         "1" => run_challenge::<Verifier1>("Ownership"       , path),
         "2" => run_challenge::<Verifier2>("Borrowing"       , path),
@@ -46,7 +51,7 @@ fn main() {
         "8" => run_challenge::<Verifier8>("Advanced User"   , path),
         "9" => run_challenge::<Verifier9>("Smart Pointer"   , path),
         "10" => run_challenge::<Verifier10>("Generic Master" , path),
-        _ => println!("Challenge{} does not exist yet", args.challenge_id)
+        _ => println!("Challenge{} does not exist yet or is not implemented", challenge_id)
     }
 }
 

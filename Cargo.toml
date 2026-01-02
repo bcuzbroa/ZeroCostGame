@@ -1,3 +1,3 @@
 [workspace]
-members = ["challenges", "oracle"]
+members = ["challenges_answers", "oracle"]
 resolver = "3"

@@ -7,19 +7,32 @@ impl ChallengeVerifier for Verifier3 {
     fn id() -> &'static str { "3" }
 
     fn run_code(path: &str) -> Self::Output {
-        let wrapper = r#"fn main() { print!("{}", value_or_zero(Some(42))); }"#;
+        let wrapper = r#"
+            fn main() { 
+                let data = vec![Some(10), None, Some(32)];
+                print!("{}", sum_options(data)); 
+            }
+        "#;
         Self::run_external(path, wrapper)
     }
 
     fn check_code(path: &str) -> bool {
         let test_wrapper = r#"
             fn main() {
-                let a = value_or_zero(Some(7));
-                let b = value_or_zero(None);
-                print!("{}|{}", a, b);
+                let t1 = value_or_zero(Some(10)) == 10 && value_or_zero(None) == 0;
+                
+                let list = vec![Some(5), None, Some(15), None];
+                let sum = sum_options(list);
+                
+                let empty_sum = sum_options(vec![]);
+
+                let t2 = sum == 20;
+                let t3 = empty_sum == 0;     
+
+                print!("{}", t1 && t2 && t3 );
             }
         "#;
-        Self::run_external(path, test_wrapper) == "7|0"
+        Self::run_external(path, test_wrapper) == "true"
     }
 
     fn secret_data() -> &'static [u8] {
