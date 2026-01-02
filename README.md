@@ -25,7 +25,7 @@ Navigate to the `challenges/src/` directory. Each challenge has its own file or 
 Implement the requested logic. It could be a simple return value or a complex algorithm.
 
 ```rust
-// challenges/src/challenge0.rs
+// challenges/challenge0.rs
 // hello function must return a string which contains "Hello World !"
 pub fn hello() -> ........ {
     // YOUR CODE HERE
@@ -35,12 +35,12 @@ pub fn hello() -> ........ {
 
 # ✅ Verifying a challenge challenge
 The oracle is designed to wrapped and verify the player code
-`./oracle -- <challenge_id> <challenge_dir_path>`
+`./oracle -- -p <challenge_path>`
 
 Exemple: Verifying the `challenge0.rs` in the challenges directory.
 
 ```bash
-`./oracle -- 0 challenge`
+`./oracle -- -p /your_path/challenge0.rs`
 ✨ Sanity Check ✨ verified: FLAG{XXXX-XXXX-XXXX-XXX}
 ```
 
