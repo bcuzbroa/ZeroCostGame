@@ -42,7 +42,7 @@ Task: Call 'check()' and use pattern matching (match):
 // TODO: Write the valid_command function here
 
 
+// Main Section
 fn main() {
-    println!("Challenges are ready! Fill in the functions above.");
-    // Students can add their own tests here to verify their code
+   //Implement your tests here
 }

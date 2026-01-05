@@ -23,7 +23,10 @@ What happens if 'x' and 'y' have different lifetimes?
 
 // TODO: Write the longest function here with appropriate lifetime annotations
 
-
+// Main Section
+fn main() {
+   //Implement your tests here
+}
 /* Bonus Question for Students:
 Look at the return type and the argument types. 
 What is the link between them? 

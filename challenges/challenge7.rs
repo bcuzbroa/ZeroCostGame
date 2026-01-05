@@ -46,3 +46,8 @@ Logic: Each component is squared individually.
 */
 
 // TODO: Define the struct and implement Square for Vec2
+
+// Main Section
+fn main() {
+   //Implement your tests here
+}

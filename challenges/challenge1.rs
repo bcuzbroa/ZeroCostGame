@@ -22,3 +22,7 @@ Questions to consider:
 */
 
 // TODO: Write the challenge_2 function here
+
+fn main() {
+   //Implement your tests here
+}

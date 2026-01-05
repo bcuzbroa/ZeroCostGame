@@ -4,7 +4,7 @@ EXERCISE: HIGHER-ORDER FUNCTIONS & SLIDING WINDOWS
 =========================================================
 */
 
-/* 1. The "select_best" function /!\ HARD /!\
+/* 1. The "select_best" function
 @args: 
     - items: &'a [T] (a slice of any type T)
     - key: F (a function/closure that turns &T into a comparable key K)
@@ -56,3 +56,9 @@ Hint: Look up the `.windows()` method for slices in the Rust docs.
 */
 
 // TODO: Write the select_best_of_each_window function here
+
+
+// Main Section
+fn main() {
+   //Implement your tests here
+}

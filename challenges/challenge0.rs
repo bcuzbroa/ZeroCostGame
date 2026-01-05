@@ -17,3 +17,9 @@ and an owned String. Make sure you return an owned String.
 
 // TODO: Write the hello function here
 
+
+//Main exemple to test your challenges
+
+fn main() {
+    //println!("{}", hello())
+}

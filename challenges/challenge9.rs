@@ -47,3 +47,8 @@ Since 'parent' is an Option, 'match' or 'if let' will be very useful.
 */
 
 // TODO: Write the get_depth function here
+
+// Main Section
+fn main() {
+   //Implement your tests here
+}

@@ -44,7 +44,16 @@ If the number of pages is equal, compare them alphabetically by title.
 
 Hint: Use the ".then()" method on the result of a comparison 
 to chain the title check.
-Example: Some(self.pages.cmp(&other.pages).then(self.title.cmp(other.title)))
+Some(
+    `COMPARING THE PAGES`
+    .then(`COMPARING THE TITLES`)
+)
 */
 
 // TODO: Implement PartialOrd for Book
+
+
+// Main Section
+fn main() {
+   //Implement your tests here
+}
