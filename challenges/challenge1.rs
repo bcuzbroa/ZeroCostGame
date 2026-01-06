@@ -1,5 +1,5 @@
 /* =========================================================
-EXERCISE: OWNERSHIP & STRING CONCATENATION
+CHALLENGE: OWNERSHIP & STRING CONCATENATION
 =========================================================
 */
 

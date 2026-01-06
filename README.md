@@ -1,6 +1,6 @@
 # 🦀 ZeroCostGame: Rust Learning Challenge
 
-Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designed to help you learn Rust by solving coding puzzles.
+Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designed to help you learn Rust by solving coding puzzles and winning flags.
 
 ---
 
@@ -9,9 +9,7 @@ Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designe
 The project is structured as a Rust **Workspace** to keep the player's code and the judge's secrets separate:
 
 * **`challenges/`**: Your playground. This is where you write your solutions.
-* **`oracle/`**: The "Black Box". This crate contains the encrypted flags and the validation logic. It depends on your code to work.
-
-
+* **`oracle/`**: The "Black Box". This crate contains the encrypted flags, the challenges code wrapper and the validation logic.
 
 ---
 
@@ -25,11 +23,34 @@ Navigate to the `challenges/src/` directory. Each challenge has its own file or 
 Implement the requested logic. It could be a simple return value or a complex algorithm.
 
 ```rust
-// challenges/challenge0.rs
-// hello function must return a string which contains "Hello World !"
-pub fn hello() -> ........ {
-    // YOUR CODE HERE
+/* =========================================================
+CHALLENGE 0: SANITY CHECK
+=========================================================
+ 
+1. Implement the "hello" function
+@args:    None
+@returns: String (owned)
+
+Task: 
+Return the exact string "Hello world !".
+
+Note: 
+In Rust, there is a difference between a string literal ("...") 
+and an owned String. Make sure you return an owned String.
+*/
+
+// TODO: Write the hello function here
+
+fn hello() -> String{
+    String::from("Hello world !")
 }
+
+//Main exemple to test your challenges
+
+fn main() {
+    //println!("{}", hello())
+}
+
 ```
 
 

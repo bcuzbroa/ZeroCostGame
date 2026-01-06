@@ -1,5 +1,5 @@
 /* =========================================================
-EXERCISE: HIGHER-ORDER FUNCTIONS & SLIDING WINDOWS
+CHALLENGE 10: HIGHER-ORDER FUNCTIONS
 /!\ HARD /!\ /!\ HARD /!\ /!\ HARD /!\ /!\ HARD /!\ /!\ HARD /!\
 =========================================================
 */
@@ -26,7 +26,7 @@ this function returns the book with the most pages.
 
 // TODO: Write the select_best function here
 // Hint: You will need to define generic types <'a, T, K, F>
-// and use trait bounds (where F: Fn(&T) -> K, K: Ord)
+// and use trait bounds (search about Fn trait in rust)
 
 
 /* 2. The "select_best_of_each_window" function

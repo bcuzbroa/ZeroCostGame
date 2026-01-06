@@ -1,5 +1,5 @@
 /* =========================================================
-EXERCISE: GENERICS & COMPARISON TRAITS
+CHALLENGE 8: GENERICS & COMPARISON TRAITS
 =========================================================
 */
 
