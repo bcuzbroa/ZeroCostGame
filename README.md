@@ -58,7 +58,7 @@ fn main() {
 The oracle is designed to wrapped and verify the player code
 `./oracle -- -p <challenge_path>`
 
-Exemple: Verifying the `challenge0.rs` in the challenges directory.
+Exemple: Verifying the `challenge0.rs` :
 
 ```bash
 `./oracle -- -p /your_path/challenge0.rs`
