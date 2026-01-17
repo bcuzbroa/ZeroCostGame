@@ -51,6 +51,7 @@ fn main() {
         "8" => run_challenge::<Verifier8>("Advanced User"   , path),
         "9" => run_challenge::<Verifier9>("Smart Pointer"   , path),
         "10" => run_challenge::<Verifier10>("Generic Master" , path),
+        
         _ => println!("Challenge{} does not exist yet or is not implemented", challenge_id)
     }
 }

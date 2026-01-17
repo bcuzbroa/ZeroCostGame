@@ -1,13 +1,17 @@
 //! This wrapper aims to compile and execute the player's code in the oracle 
 //! environnement. 
+
+use regex::Regex;
 pub fn wrapper(path: &str, wrapper_main: &str, id : &str) -> String {
 
         let mut player_code = std::fs::read_to_string(&path)
             .expect(&format!("Could not read {}", path));
 
         // Removing player's main so the program can use its own.
-        player_code = player_code.replace("fn main()", "fn player_unused_main()");
-        player_code = player_code.replace("fn main ()", "fn player_unused_main()");        
+
+        let pattern = r"fn\s+main\s*\(\s*\)";
+        let re = Regex::new(pattern).unwrap();
+        player_code = re.replace_all(&player_code, "fn player_unused_main()").into_owned();       
 
         // Create a temporary source file including the player's code and our test main
         let temp_src = format!("temp_challenge_{}.rs", id);

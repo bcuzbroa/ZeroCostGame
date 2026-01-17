@@ -73,7 +73,6 @@ fn main(){
 }
 
 
-
 fn crypt_flag<V : ChallengeVerifier>(flag :&str, path: &str) -> Vec<u8>{
 
     let out = V::run_code(path);
@@ -90,7 +89,11 @@ fn write_encrypted_flag_to_csv(id : &str, ciphertext : Vec<u8>) -> Result<(), Bo
     let path = env!("CARGO_MANIFEST_DIR");
     let mut file_path = PathBuf::from(path);
     file_path.push("src");
+    file_path.push("flags");    let path = env!("CARGO_MANIFEST_DIR");
+    let mut file_path = PathBuf::from(path);
+    file_path.push("src");
     file_path.push("flags");
+    file_path.push("encrypted_flag_list.csv");
     file_path.push("encrypted_flag_list.csv");
     
     let file = OpenOptions::new()

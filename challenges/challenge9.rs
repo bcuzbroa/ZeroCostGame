@@ -1,4 +1,4 @@
-/* =========================================================
+/* ======================================================
 CHALLENGE 9: SMART POINTER
 =========================================================
 */
@@ -45,9 +45,8 @@ it does not deep-copy the data.
 Task: 
 Calculate how many levels deep the folder is.
 - If the folder has no parent (like "/"), return 0.
-- Otherwise, return 1 + the depth of its parent.
 
-Hint: This is a recursive problem! 
+Hint: This is a recursive problem ! 
 Since 'parent' is an Option, 'match' or 'if let' will be very useful.
 */
 

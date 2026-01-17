@@ -9,7 +9,10 @@ struct Folder {
 
 
 fn create_child(name: &str, parent: &Rc<Folder>) -> Folder {
-    Folder { name: name.to_string() , parent: Some(Rc::clone(parent)) }
+    Folder { 
+        name: name.to_string(),
+        parent: Some(Rc::clone(parent)) 
+    }
 }
 
 /*

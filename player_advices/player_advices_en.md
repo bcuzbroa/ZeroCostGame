@@ -69,9 +69,13 @@ fn main() {
     println!("{}", hello());
 }
 ```
+---
 
-## ⚠️ The content of the main function has no impact on validation by the oracle. It is only there to help you test your code. In fact, it is "ignored" when the oracle verifies your challenge.
-Verify a challenge with the oracle
+⚠️ The content of the main function has no impact on validation by the oracle. It is only there to help you test your code. In fact, it is "ignored" when the oracle verifies your challenge.
+
+---
+
+## Verify a challenge with the oracle
 
 Once your code is ready, you can use the oracle to verify your solution:
 

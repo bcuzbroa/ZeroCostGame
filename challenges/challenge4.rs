@@ -9,6 +9,9 @@ Task: Create an enum named CommandError that derives Debug.
 Variants:
 - ContainsBang
 - ContainsSlash
+
+Hint : add #[derive(Debug)] the line before the CommandError Enum 
+definition to derive Enum
 */
 
 // TODO: Define your enum here

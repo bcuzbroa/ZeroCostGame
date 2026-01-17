@@ -1,6 +1,5 @@
-/* /!\ HARD ONE /!\
+/* /!\ HARD ONE /!\*/
 
-*/
 fn select_best <'a, T, K, F>(
     items: &'a [T],
     key: F,
@@ -9,7 +8,6 @@ where
     F : Fn(&T) -> K,
     K : Ord,
 {
-
     // Cache in order to compute each key only once
     let mut iter = items.iter();
     let mut best = iter.next()?;
@@ -22,7 +20,7 @@ where
             best_key = k
         }
     }
-    
+
     Some(best)
 }
 
@@ -43,9 +41,9 @@ where
     let mut best_of_each_window : Vec<&T> = Vec::new();
     
     for window in items.windows(window_size){
-        
         best_of_each_window.push(select_best(window, &key).unwrap());
     }
+    
     best_of_each_window
     
 }
