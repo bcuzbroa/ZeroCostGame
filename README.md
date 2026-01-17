@@ -67,4 +67,13 @@ Exemple: Verifying the `challenge0.rs` :
 
 If this is a success, a flag is prompted, else you are kindly told to keep thinking.
 
+# ⚙️ How to play ?
+
+Generate the script
+```bash
+sh game_setup.sh
+```
+
+An archive is created including all the needed info in `player_advices`
+
 

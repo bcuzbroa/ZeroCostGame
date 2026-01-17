@@ -2,9 +2,11 @@ mod crypto;
 mod logic;
 mod verifiers;
 mod wrapper;
+mod banner;
 
 use logic::{ChallengeVerifier, solve};
 use verifiers::*;
+use crate::banner::banner;
 
 use clap::Parser;
 use regex::Regex;
@@ -58,7 +60,7 @@ fn main() {
 
 fn run_challenge<V: ChallengeVerifier>(name: &str, path: &str){
     match solve::<V>(path){ //TURBOFISH
-        Some(flag) => println!("✨ {} ✨ verified: {}", name, flag),
+        Some(flag) => println!("{}\n✨ {} ✨ verified: {}", banner(), name, flag),
         None  => println!("❌❌ {}: NOPE ❌❌ Do you even try ??", name)
     }
 }
