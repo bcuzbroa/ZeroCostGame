@@ -2,6 +2,9 @@
 
 Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designed to help you learn Rust by solving coding puzzles and winning flags.
 
+![ZeroCostGame](assets/logo.png)
+
+
 ---
 
 ## 🏗️ Project Architecture
@@ -45,10 +48,9 @@ fn hello() -> String{
     String::from("Hello world !")
 }
 
-//Main exemple to test your challenges
-
+//Main: Test your challenge here !
 fn main() {
-    //println!("{}", hello())
+    println!("{}", hello())
 }
 
 ```

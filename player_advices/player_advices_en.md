@@ -62,7 +62,6 @@ ls -l oracle
 ## 🧪 Test your code locally
 
 You can run your own tests directly in the main function of the challenge file:
-Rust
 
 ```rust
 fn main() {
