@@ -36,7 +36,7 @@ Task:
 @args: &str
 @returns: Result<String, CommandError>
 
-Task: use the 'check' function on the argument:
+Task: Call 'check()' and use pattern matching (match):
 - If Ok: return the result.
 - If ContainsBang: remove the '!' from the string and return it in an Ok().
 - If ContainsSlash: return the error.

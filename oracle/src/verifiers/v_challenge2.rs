@@ -7,7 +7,7 @@ impl ChallengeVerifier for Verifier2 {
     fn id() -> &'static str { "2" }
 
     fn run_code(path: &str) -> Self::Output {
-        let wrapper = r#"fn main() { print!("{}", coktail("Mojito".to_string())); }"#;
+        let wrapper = r#"fn main() { print!("{}", cocktail("Mojito".to_string())); }"#;
         Self::run_external(path, wrapper)
     }
 

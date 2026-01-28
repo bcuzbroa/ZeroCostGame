@@ -3,7 +3,7 @@ CHALLENGE: OWNERSHIP & STRING CONCATENATION
 =========================================================
 */
 
-/* 1. The "concat" function
+/* 1. The "challenge_2" function
 @args:    input: String (owned)
 @returns: String (owned)
 
@@ -12,7 +12,7 @@ Take the input string, append the suffix " processed" to it,
 and return the result.
 
 Example: 
-assert_eq!(concat(String::from("foo")), "foo processed")
+challenge_2(String::from("foo")) -> "foo processed"
 
 Questions to consider:
 1. Does the function "consume" the input string? 
@@ -21,7 +21,7 @@ Questions to consider:
 3. Is the '+' operator symmetric in Rust?
 */
 
-// TODO: Write the concat function here
+// TODO: Write the challenge_2 function here
 
 fn main() {
    //Implement your tests here

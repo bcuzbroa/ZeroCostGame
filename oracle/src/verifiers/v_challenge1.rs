@@ -10,7 +10,7 @@ impl ChallengeVerifier for Verifier1{
     fn run_code(path: &str) -> Self::Output {
         let wrapper = r#"
             fn main() {
-                print!("{}", challenge_1("input".to_string()));
+                print!("{}", concat("input".to_string()));
             }
         "#;
         Self::run_external(path, wrapper)
@@ -20,7 +20,7 @@ impl ChallengeVerifier for Verifier1{
         // Validation check with the special string "x45àg"
         let test_wrapper = r#"
             fn main() {
-                print!("{}", challenge_1("x45àg".to_string()));
+                print!("{}", concat("x45àg".to_string()));
             }
         "#;
         Self::run_external(path, test_wrapper) == "x45àg processed"

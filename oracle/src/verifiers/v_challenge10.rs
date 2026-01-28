@@ -4,9 +4,7 @@ pub struct Verifier10;
 impl ChallengeVerifier for Verifier10 {
     type Output = String;
 
-    fn id() -> &'static str {
-        "10"
-    }
+    fn id() -> &'static str { "10" }
 
     fn run_code(path: &str) -> Self::Output {
         let wrapper = r#"

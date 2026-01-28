@@ -8,7 +8,7 @@ echo " |___  /             /  ___|        | |   / ____|                         
 echo "    / / ___ _ __ ___|  |    ___  ___| |_ | |  __  ____ __ _ _ __  ___     "
 echo "   / / / _ \ '__/ _ \  |   / _ \/ __| __|| | |_ |/ _' | '_ \` _ \/ _ \\   "
 echo "  / /_|  __/ | | (_) | |___| (_) \__ \ |_| |__| | (_| | | | | | |  __/    "
-echo " /_____\___|_|  \___/ \_____\___/|___/\__|\_____|\__,_|_| |_| |_|\___|    "
+echo " /_____\___|_|  \___/\______\___/|___/\__|\_____|\__,_|_| |_| |_|\___|    "
 echo "                                                                          "
 echo "                         S E T U P . M O D E                              "
 echo "=========================================================================="                
@@ -32,6 +32,7 @@ mkdir game_directory/challenges
 cp -r challenges game_directory/
 cp -r player_advices game_directory
 cp target/release/oracle game_directory
+echo "FLAG{Oh_yES_1_c4N_Unt@R}" > game_directory/player_advices/first_flag.txt 
 
 # Compressing
 tar -czf game_directory.tar.gz game_directory

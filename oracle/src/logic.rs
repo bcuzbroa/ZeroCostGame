@@ -27,7 +27,7 @@ pub fn solve<V : ChallengeVerifier>(path: &str) -> Option<String>{
     }
     let out = V::run_code(path);
     let key = blake3::hash(out.as_ref()); 
-    let nonce = [0x42u8; 24];
+    let nonce = [0x42u8; 24]; //Static
     let cipher = V::secret_data();
     let decrypted = crypto::decrypt(key.as_bytes(), &nonce, cipher)?;
     let d_flag = String::from_utf8(decrypted).ok();
