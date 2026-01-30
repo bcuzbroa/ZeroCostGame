@@ -15,7 +15,7 @@ impl ChallengeVerifier for Verifier2 {
         let test_wrapper = r#"
             fn main() {
                 let s = "     A Test Sentence  ".to_string();
-                print!("{}", coktail(s));
+                print!("{}", cocktail(s));
             }
         "#;
         Self::run_external(path, test_wrapper) == "a test sentence"
