@@ -80,12 +80,12 @@ Une fois le code prêt, vous pouvez utiliser l'oracle pour vérifier votre solut
 
 
 ```bash
-./oracle -- -p /path/to/challenge
+./oracle -p /path/to/challenge
 ```
 
 Par exemple :
 ```bash
- ./oracle -- -p /chemin/vers/challenges/src/challenge0.rs
+ ./oracle -p challenges/challenge0.rs
 ```
 
 Le résultat attendu est le suivant:

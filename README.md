@@ -63,7 +63,7 @@ The oracle is designed to wrapped and verify the player code
 Exemple: Verifying the `challenge0.rs` :
 
 ```bash
-`./oracle -- -p /your_path/challenge0.rs`
+`./oracle -p /your_path/challenge0.rs`
 ✨ Sanity Check ✨ verified: FLAG{XXXX-XXXX-XXXX-XXX}
 ```
 

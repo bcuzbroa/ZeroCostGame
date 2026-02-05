@@ -40,7 +40,8 @@ the same number of pages.
 
 /* Task C: Implement PartialOrd for Book
 Task: Compare books based on pages. 
-If the number of pages is equal, compare them alphabetically by title.
+If the number of pages is equal, compare them alphabetically by title
+such as Beta > Alpha (increasing order )
 
 Hint: Use the ".then()" method on the result of a comparison 
 to chain the title check.

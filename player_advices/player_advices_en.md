@@ -80,13 +80,13 @@ Once your code is ready, you can use the oracle to verify your solution:
 
 
 ```bash
-./oracle -- -p /path/to/challenge
+./oracle -p /path/to/challenge
 ```
 
 Example:
 
 ```bash
- ./oracle -- -p /chemin/vers/challenges/src/challenge0.rs
+ ./oracle -p challenges/challenge0.rs
 ```
 
 The expected result is as follows:
