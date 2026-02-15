@@ -1,4 +1,5 @@
 /target
 oracle/src/flags/
 flag_list.csv
-player_directory    
+player_directory
+game_directory.tar.gz    
