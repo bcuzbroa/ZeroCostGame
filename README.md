@@ -4,6 +4,7 @@ Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designe
 
 ![ZeroCostGame](assets/logo.png)
 
+**Find more about this ctf on my blog article:** [bcuzbroa.fr/posts/rust-ctf/](https://bcuzbroa.fr/posts/rust-ctf/)
 
 ---
 
