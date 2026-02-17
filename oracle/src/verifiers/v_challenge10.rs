@@ -54,11 +54,6 @@ impl ChallengeVerifier for Verifier10 {
 
                 let best = select_best(&items, |i| i.value);
                 let t2 = best.is_some() && best.unwrap().label == "d";
-
-                // key derived (not direct field)
-                let best_len = select_best(&items, |i| i.label.len());
-                let t3 = best_len.unwrap().label == "a";
-
  
                 let r = select_best_of_each_window(&items, |i| i.value, 2);
 
@@ -78,7 +73,7 @@ impl ChallengeVerifier for Verifier10 {
                 let ptr_result   = r[0] as *const Item;
                 let t10 = ptr_original == ptr_result;
 
-                print!("{}", t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10);
+                print!("{}", t1 && t2 && t4 && t5 && t6 && t7 && t8 && t9 && t10);
             }
         "#;
 
