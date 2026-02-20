@@ -2,9 +2,11 @@
 
 Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designed to help you learn Rust by solving coding puzzles and winning flags.
 
-![ZeroCostGame](assets/logo.png)
-
 **Find more about this ctf on my blog article:** [bcuzbroa.fr/posts/rust-ctf/](https://bcuzbroa.fr/posts/rust-ctf/)
+
+**You can play on the ctfd here:**  [ctfd.bcuzbroa.fr](https://ctfd.bcuzbroa.fr)
+
+![ZeroCostGame](assets/logo.png)
 
 ---
 
