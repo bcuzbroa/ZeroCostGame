@@ -1,10 +1,9 @@
 //BORROWING
 
 //returns low caps trimed string
-fn cocktail(s : String) -> String{
+fn cocktail(s: String) -> String {
     low_caps(space(&s))
 }
-
 
 /*
 argument : a string s
@@ -13,7 +12,7 @@ eg: "       test     " -> "test"
 hint : a string method exists to do so
 but you can try to implement it yourself
 */
-fn space(s : &str) -> &str {
+fn space(s: &str) -> &str {
     s.trim()
 }
 
@@ -23,8 +22,7 @@ return : s to lowercase
 hint : a string method exists to do so
 but you can try to implement it yourself (Good luck with that lol)
 */
-fn low_caps(s : &str) -> String{
+fn low_caps(s: &str) -> String {
     //TODO
     s.to_lowercase()
 }
-

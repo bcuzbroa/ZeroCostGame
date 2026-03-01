@@ -3,7 +3,9 @@ pub struct Verifier9;
 
 impl ChallengeVerifier for Verifier9 {
     type Output = String;
-    fn id() -> &'static str { "9" }
+    fn id() -> &'static str {
+        "9"
+    }
 
     fn run_code(path: &str) -> Self::Output {
         let wrapper = r#"
@@ -39,6 +41,10 @@ impl ChallengeVerifier for Verifier9 {
     }
 
     fn secret_data() -> &'static [u8] {
-        &[216, 189, 83, 173, 241, 157, 59, 77, 254, 27, 204, 162, 147, 113, 218, 88, 6, 150, 30, 90, 231, 213, 55, 104, 85, 134, 165, 247, 173, 177, 204, 171, 83, 209, 186, 53, 195, 112, 32, 14, 134, 108]
+        &[
+            216, 189, 83, 173, 241, 157, 59, 77, 254, 27, 204, 162, 147, 113, 218, 88, 6, 150, 30,
+            90, 231, 213, 55, 104, 85, 134, 165, 247, 173, 177, 204, 171, 83, 209, 186, 53, 195,
+            112, 32, 14, 134, 108,
+        ]
     }
 }

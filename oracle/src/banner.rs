@@ -11,5 +11,5 @@ pub fn banner() -> String {
                     C H A L L E N G E . M O D E                       
 ==========================================================================
 "#;
-    banner.to_string()  
+    banner.to_string()
 }

@@ -6,7 +6,7 @@ use std::cmp::PartialOrd;
 Implement a largest fonction with a given list of type T : &[T]
 that returns the largest element of generic type T
 */
-fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T { 
+fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
     let mut largest = &list[0];
     for item in list {
         if item > largest {
@@ -19,15 +19,13 @@ fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
 //  Exercice 2 *
 // Lot of point here but both exercices must be done !
 struct Book<'a> {
-    
-    author : &'a str,
+    author: &'a str,
     title: &'a str,
-    pages : i32,
-
+    pages: i32,
 }
 
 /*
-Implement the PartialEq trait for 
+Implement the PartialEq trait for
 Book<'a> (only on the number of pages)
 */
 impl<'a> PartialEq for Book<'a> {
@@ -37,19 +35,20 @@ impl<'a> PartialEq for Book<'a> {
 }
 
 /*
-Implement the Partial Ord trait for 
+Implement the Partial Ord trait for
 Book<'a>
 Compare the number of pages. If equals : compare the title
-hint. Use 
+hint. Use
 Some (
     xxxxxx.then(yyyyyyy)
     )
 */
-impl<'a> PartialOrd for Book<'a>{
+impl<'a> PartialOrd for Book<'a> {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
         Some(
-            self.pages.cmp(&other.pages)
-            .then(self.title.cmp(other.title))
+            self.pages
+                .cmp(&other.pages)
+                .then(self.title.cmp(other.title)),
         ) // If pages are equals, compare the title
     }
 }

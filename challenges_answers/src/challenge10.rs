@@ -1,12 +1,9 @@
 /* /!\ HARD ONE /!\*/
 
-fn select_best <'a, T, K, F>(
-    items: &'a [T],
-    key: F,
-) -> Option<&'a T>
-where 
-    F : Fn(&T) -> K,
-    K : Ord,
+fn select_best<'a, T, K, F>(items: &'a [T], key: F) -> Option<&'a T>
+where
+    F: Fn(&T) -> K,
+    K: Ord,
 {
     // Cache in order to compute each key only once
     let mut iter = items.iter();
@@ -15,7 +12,7 @@ where
 
     for t in iter {
         let k = key(t);
-        if k > best_key{
+        if k > best_key {
             best = t;
             best_key = k
         }
@@ -24,26 +21,20 @@ where
     Some(best)
 }
 
-
-fn select_best_of_each_window<'a, T, K, F>(
-    items: &'a [T],
-    key: F,
-    window_size : usize,
-) -> Vec<&'a T>
-where 
-    K : Ord,
-    F : Fn(&T) -> K,
+fn select_best_of_each_window<'a, T, K, F>(items: &'a [T], key: F, window_size: usize) -> Vec<&'a T>
+where
+    K: Ord,
+    F: Fn(&T) -> K,
 {
-    if window_size == 0 || window_size > items.len()  {
-        return Vec::new()
+    if window_size == 0 || window_size > items.len() {
+        return Vec::new();
     }
 
-    let mut best_of_each_window : Vec<&T> = Vec::new();
-    
-    for window in items.windows(window_size){
+    let mut best_of_each_window: Vec<&T> = Vec::new();
+
+    for window in items.windows(window_size) {
         best_of_each_window.push(select_best(window, &key).unwrap());
     }
-    
+
     best_of_each_window
-    
 }

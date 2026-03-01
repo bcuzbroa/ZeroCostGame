@@ -3,7 +3,9 @@ pub struct Verifier8;
 
 impl ChallengeVerifier for Verifier8 {
     type Output = String;
-    fn id() -> &'static str { "8" }
+    fn id() -> &'static str {
+        "8"
+    }
 
     // Run code: Demonstrates that the 'largest' function works on a simple list of integers
     fn run_code(path: &str) -> Self::Output {
@@ -71,6 +73,10 @@ impl ChallengeVerifier for Verifier8 {
     }
 
     fn secret_data() -> &'static [u8] {
-        &[117, 124, 36, 221, 182, 33, 215, 12, 10, 205, 118, 253, 231, 54, 229, 206, 166, 24, 1, 232, 193, 174, 79, 51, 115, 155, 181, 56, 103, 173, 174, 233, 6, 12, 242, 255, 92, 220, 176, 211, 253, 39, 207, 253, 251, 161, 2, 25, 138, 68, 252, 28, 8, 148, 194]
+        &[
+            117, 124, 36, 221, 182, 33, 215, 12, 10, 205, 118, 253, 231, 54, 229, 206, 166, 24, 1,
+            232, 193, 174, 79, 51, 115, 155, 181, 56, 103, 173, 174, 233, 6, 12, 242, 255, 92, 220,
+            176, 211, 253, 39, 207, 253, 251, 161, 2, 25, 138, 68, 252, 28, 8, 148, 194,
+        ]
     }
 }

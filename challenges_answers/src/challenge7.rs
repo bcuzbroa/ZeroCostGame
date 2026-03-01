@@ -1,7 +1,6 @@
 // Traits
 
-
-trait Square{
+trait Square {
     //Squares itself
     fn square(self) -> Self;
 }
@@ -11,22 +10,22 @@ trait Square{
 // asserteq!(i.square(), 900)
 impl Square for i32 {
     fn square(self) -> Self {
-        self*self
+        self * self
     }
 }
 
 // Implement the square trait for a Complex number
 struct Complex {
-    re : f64,
-    im : f64
+    re: f64,
+    im: f64,
 }
 
-impl Square for Complex{
+impl Square for Complex {
     fn square(self) -> Self {
-        Complex { 
-            re: self.re * self.re - self.im * self.im, 
-            im: 2.0*self.im*self.re
-        }        
+        Complex {
+            re: self.re * self.re - self.im * self.im,
+            im: 2.0 * self.im * self.re,
+        }
     }
 }
 
@@ -45,4 +44,3 @@ impl Square for Vec2 {
         }
     }
 }
-

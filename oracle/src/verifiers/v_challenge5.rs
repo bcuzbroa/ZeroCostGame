@@ -4,7 +4,9 @@ pub struct Verifier5;
 
 impl ChallengeVerifier for Verifier5 {
     type Output = Vec<u8>;
-    fn id() -> &'static str { "5" }
+    fn id() -> &'static str {
+        "5"
+    }
 
     fn run_code(path: &str) -> Self::Output {
         let wrapper = r#"
@@ -16,11 +18,12 @@ impl ChallengeVerifier for Verifier5 {
                 print!("{}", output.join(","));
             }
         "#;
-        
+
         let raw_output = Self::run_external(path, wrapper);
-        
+
         // Parse the comma-separated string back into a Vec<u8>
-        raw_output.split(',')
+        raw_output
+            .split(',')
             .filter_map(|s| s.parse::<u8>().ok())
             .collect()
     }
@@ -39,6 +42,10 @@ impl ChallengeVerifier for Verifier5 {
     }
 
     fn secret_data() -> &'static [u8] {
-        &[123, 59, 213, 113, 31, 233, 174, 100, 145, 62, 123, 85, 102, 125, 189, 74, 117, 129, 18, 15, 163, 121, 154, 178, 48, 143, 83, 201, 255, 192, 110, 157, 45, 147, 113, 232, 119, 35, 249, 98, 250, 207, 75, 179, 72, 234, 38, 177, 37, 98, 60]
+        &[
+            123, 59, 213, 113, 31, 233, 174, 100, 145, 62, 123, 85, 102, 125, 189, 74, 117, 129,
+            18, 15, 163, 121, 154, 178, 48, 143, 83, 201, 255, 192, 110, 157, 45, 147, 113, 232,
+            119, 35, 249, 98, 250, 207, 75, 179, 72, 234, 38, 177, 37, 98, 60,
+        ]
     }
 }
