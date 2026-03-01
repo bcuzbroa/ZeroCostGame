@@ -4,7 +4,7 @@
 use regex::Regex;
 pub fn wrapper(path: &str, wrapper_main: &str, id: &str) -> String {
     let mut player_code =
-        std::fs::read_to_string(&path).expect(&format!("Could not read {}", path));
+        std::fs::read_to_string(path).expect(&format!("Could not read {}", path));
 
     // Removing player's main so the program can use its own.
 

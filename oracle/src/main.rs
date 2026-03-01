@@ -64,3 +64,4 @@ fn run_challenge<V: ChallengeVerifier>(name: &str, path: &str) {
         None => println!("❌❌ {}: NOPE ❌❌ Do you even try ??", name),
     }
 }
+    

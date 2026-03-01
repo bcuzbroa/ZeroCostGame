@@ -1,4 +1,3 @@
-use blake3;
 use chacha20poly1305::{
     aead::{Aead, KeyInit},
     XChaCha20Poly1305,
@@ -87,7 +86,6 @@ fn write_encrypted_flag_to_csv(id: &str, ciphertext: Vec<u8>) -> Result<(), Box<
     file_path.push("encrypted_flag_list.csv");
 
     let file = OpenOptions::new()
-        .write(true) // Authorise writing
         .append(true) // Set the cursor at the end of the file
         .create(true) // Creates the file if it doesnt exist
         .open(file_path)?;
@@ -96,7 +94,7 @@ fn write_encrypted_flag_to_csv(id: &str, ciphertext: Vec<u8>) -> Result<(), Box<
 
     let cipher_string = format!("{:?}", ciphertext);
 
-    wtr.write_record(&[id, &cipher_string])?;
+    wtr.write_record([id, &cipher_string])?;
     wtr.flush()?;
 
     Ok(())
@@ -109,14 +107,13 @@ fn write_flag_to_csv(id: &str, flag: &str) -> Result<(), Box<dyn Error>> {
     file_path.push("flag_list.csv");
 
     let file = OpenOptions::new()
-        .write(true)
         .append(true)
         .create(true)
         .open(file_path)?;
 
     let mut wtr = WriterBuilder::new().delimiter(b',').from_writer(file);
 
-    wtr.write_record(&[id, flag])?;
+    wtr.write_record([id, flag])?;
     wtr.flush()?;
 
     Ok(())
