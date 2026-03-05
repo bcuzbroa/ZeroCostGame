@@ -1,4 +1,4 @@
-# 🦀 ZeroCostGame: Rust Learning Challenge
+# 🦀 ZeroCostGame: Rust Learning Challenge 🦀
 
 Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designed to help you learn Rust by solving coding puzzles and winning flags.
 
@@ -10,7 +10,7 @@ Welcome to **ZeroCostGame**! This is a Capture The Flag (CTF) style game designe
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 The project is structured as a Rust **Workspace** to keep the player's code and the judge's secrets separate:
 
@@ -19,7 +19,7 @@ The project is structured as a Rust **Workspace** to keep the player's code and 
 
 ---
 
-## 🚀 How to Play
+## How to Play
 
 ### 1. Choose your Challenge
 Navigate to the `challenges/src/` directory. Each challenge has its own file or module. 
@@ -59,7 +59,7 @@ fn main() {
 ```
 
 
-# ✅ Verifying a challenge challenge
+# Verifying a challenge challenge
 The oracle is designed to wrapped and verify the player code
 `./oracle -- -p <challenge_path>`
 
@@ -72,7 +72,7 @@ Exemple: Verifying the `challenge0.rs` :
 
 If this is a success, a flag is prompted, else you are kindly told to keep thinking.
 
-# ⚙️ How to play ?
+# How to play ?
 
 Generate the script
 ```bash

@@ -41,17 +41,17 @@ fn main() {
     };
 
     let ciphertext = match challenged_id {
-        "0" => crypt_flag::<Verifier0>(flag, path),
-        "1" => crypt_flag::<Verifier1>(flag, path),
-        "2" => crypt_flag::<Verifier2>(flag, path),
-        "3" => crypt_flag::<Verifier3>(flag, path),
-        "4" => crypt_flag::<Verifier4>(flag, path),
-        "5" => crypt_flag::<Verifier5>(flag, path),
-        "6" => crypt_flag::<Verifier6>(flag, path),
-        "7" => crypt_flag::<Verifier7>(flag, path),
-        "8" => crypt_flag::<Verifier8>(flag, path),
-        "9" => crypt_flag::<Verifier9>(flag, path),
-        "10" => crypt_flag::<Verifier10>(flag, path),
+        "0" => encrypt_flag::<Verifier0>(flag, path),
+        "1" => encrypt_flag::<Verifier1>(flag, path),
+        "2" => encrypt_flag::<Verifier2>(flag, path),
+        "3" => encrypt_flag::<Verifier3>(flag, path),
+        "4" => encrypt_flag::<Verifier4>(flag, path),
+        "5" => encrypt_flag::<Verifier5>(flag, path),
+        "6" => encrypt_flag::<Verifier6>(flag, path),
+        "7" => encrypt_flag::<Verifier7>(flag, path),
+        "8" => encrypt_flag::<Verifier8>(flag, path),
+        "9" => encrypt_flag::<Verifier9>(flag, path),
+        "10" => encrypt_flag::<Verifier10>(flag, path),
 
         _ => {
             eprintln!("Unknown challenge id");
@@ -63,7 +63,7 @@ fn main() {
     write_encrypted_flag_to_csv(challenged_id, ciphertext).unwrap();
 }
 
-fn crypt_flag<V: ChallengeVerifier>(flag: &str, path: &str) -> Vec<u8> {
+fn encrypt_flag<V: ChallengeVerifier>(flag: &str, path: &str) -> Vec<u8> {
     let out = V::run_code(path);
     let key = blake3::hash(out.as_ref());
     let nonce = [0x42u8; 24]; //Here is a little vulnerabily, let them use it ! (static nonce)
